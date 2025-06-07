@@ -1,0 +1,6 @@
+[submodule "Real-ESRGAN"]
+	path = submodules/Real-ESRGAN
+	url = https://github.com/xinntao/Real-ESRGAN
+[submodule "submodules/StableVSR"]
+	path = submodules/StableVSR
+	url = https://github.com/claudiom4sir/StableVSR

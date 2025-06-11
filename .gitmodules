@@ -4,3 +4,6 @@
 [submodule "StableVSR"]
 	path = submodules/StableVSR
 	url = https://github.com/claudiom4sir/StableVSR
+[submodule "submodules/ESRGAN"]
+	path = submodules/ESRGAN
+	url = https://github.com/xinntao/ESRGAN

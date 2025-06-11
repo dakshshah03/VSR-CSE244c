@@ -16,7 +16,7 @@ We will be comparing the following models:
 2. Initialize submodules
    ```
    cd VSR-CSE244c
-   git submodule init
+   git submodule update --init
    git submodule update --remote
    ```
 ### Setting up the Benchmark Dataset

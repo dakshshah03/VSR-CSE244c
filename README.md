@@ -9,9 +9,16 @@ We will be comparing the following models:
 - StableVSR (Diffusion w/ Temporal Consistency)
 
 ## Getting Started
-```
-git clone https://github.com/dakshshah03/VSR-CSE244c.git
-```
+1. Clone the repository
+    ```
+    git clone https://github.com/dakshshah03/VSR-CSE244c.git
+    ```
+2. Initialize submodules
+   ```
+   cd VSR-CSE244c
+   git submodule init
+   git submodule update --remote
+   ```
 ### Setting up the Benchmark Dataset
 1. Download the `train_sharp` and `train_sharp_bicubic` datasets from https://seungjunnah.github.io/Datasets/reds.html
 2. Extract the sequences 000, 011, 015, 020 from both low resolution and ground truth, organized as:

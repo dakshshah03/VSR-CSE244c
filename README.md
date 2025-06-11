@@ -55,6 +55,11 @@ which will upscale the sets of images from REDS4 in the `./data/REDS/benchmark_d
    pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
    ```
 ### Running Inference
+```
+cd scripts && bash esrgan_inference.sh
+```
+
+which will upscale the sets of images from REDS4 in the `./data/REDS/benchmark_data/low_resolution` folder and output the upscaled images (and videos) in `./output/esrgan/`
 
 ## Real-ESRGAN
 ### Setting up:

@@ -54,6 +54,7 @@ which will upscale the sets of images from REDS4 in the `./data/REDS/benchmark_d
    pip install numpy opencv-python
    pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
    ```
+2. Download the model weights and place them in the `./submodules/ESRGAN/models/` directory from their [google drive]([url](https://drive.google.com/drive/u/0/folders/17VYV_SoZZesU6mbxz2dMAIccSSlqLecY)).
 ### Running Inference
 ```
 cd scripts && bash esrgan_inference.sh

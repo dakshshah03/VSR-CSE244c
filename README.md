@@ -46,24 +46,15 @@ cd scripts && bash bicubic_inference.sh
 which will upscale the sets of images from REDS4 in the `./data/REDS/benchmark_data/low_resolution` folder and output the upscaled images (and videos) in `./output/baseline/`
 
 ## ESRGAN
-## SR3
-## StableVSR
 ### Setting up
-1. Run 
-    ```
-    conda create -n stablevsr python=3.8.17 -y
-    cd submodules/StableVSR
-    conda activate stablevsr
-    pip install -r requirements.txt
-    ```
-
+1. Run
+   ```
+   conda create -n esrgan python=3.8 -y
+   conda activate esrgan
+   pip install numpy opencv-python
+   pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+   ```
 ### Running Inference
-We have set up a script to run inference on REDS4.
-    ```
-    cd scripts && bash stablevsr_inference.sh
-    ```
-which will upscale the images in the `./data/REDS/benchmark_data/low_resolution` folder and output the upscaled images (and videos) in `./output/stablevsr/`
-
 
 ## Real-ESRGAN
 ### Setting up:
@@ -98,6 +89,23 @@ We have set up a script to run inference on REDS4.
     cd scripts && bash realesrgan_inference.sh
     ```
 which will upscale the images in the `./data/REDS/benchmark_data/low_resolution` folder and output the upscaled images (and videos) in `./output/realesr/`
+
+## StableVSR
+### Setting up
+1. Run 
+    ```
+    conda create -n stablevsr python=3.8.17 -y
+    cd submodules/StableVSR
+    conda activate stablevsr
+    pip install -r requirements.txt
+    ```
+
+### Running Inference
+We have set up a script to run inference on REDS4.
+    ```
+    cd scripts && bash stablevsr_inference.sh
+    ```
+which will upscale the images in the `./data/REDS/benchmark_data/low_resolution` folder and output the upscaled images (and videos) in `./output/stablevsr/`
 
 <!-- ## Baseline
 Bicubic Interpolation will be used to upscale the images.

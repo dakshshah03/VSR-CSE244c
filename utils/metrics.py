@@ -166,7 +166,7 @@ def dists_video(baseline, pred):
     # print("Min: ", torch.min(baseline_videos))
     # print("Max: ", torch.max(baseline_videos))
 
-    print("Calculating lpips scores...")
+    print("Calculating dists scores...")
 
     # predicted and target videos are shape (N, C, T, H, W)
     dists_scores = []

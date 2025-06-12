@@ -1,3 +1,5 @@
 ./submodules/*
 ./data/*
 ./output/*
+/data/*
+!/data/.gitkeep

@@ -22,6 +22,7 @@ def main():
 
         avg_ssim, _ = metrics.ssim_video(ground_truth_path, pred_path)
         avg_psnr, _ = metrics.psnr_video(ground_truth_path, pred_path)
+        avg_dists, _ = metrics.dists_video(ground_truth_path, pred_path)
         avg_lpips, _ = metrics.lpips_video(ground_truth_path, pred_path)
         avg_tlpips, _ = metrics.tlpips_video(pred_path)
 
@@ -31,6 +32,7 @@ def main():
             "Model": model_name,
             "SSIM": avg_ssim,
             "PSNR": avg_psnr,
+            "DISTS": avg_dists,
             "LPIPS": avg_lpips,
             "tLPIPS": avg_tlpips,
         })

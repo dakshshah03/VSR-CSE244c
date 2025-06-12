@@ -5,13 +5,17 @@ from glob import glob
 from PIL import Image
 from torchmetrics.image import StructuralSimilarityIndexMeasure, PeakSignalNoiseRatio
 from torchmetrics.image.lpip import LearnedPerceptualImagePatchSimilarity
+from torchmetrics.image.dists import DeepImageStructureAndTextureSimilarity
 
 # function that takes in video folders and outputs tensor batches
 def load_and_check_videos(baseline, pred):
         
     print("collecting directories...")
-    baseline_dirs = sorted([os.path.join(baseline, folder) for folder in os.listdir(baseline) if folder.isdigit()])
-    pred_dirs = sorted([os.path.join(pred, folder) for folder in os.listdir(pred) if folder.isdigit()])
+    baseline_dirs = sorted([os.path.join(baseline, folder) for folder in os.listdir(baseline)
+                        if os.path.isdir(os.path.join(baseline, folder))])
+
+    pred_dirs = sorted([os.path.join(pred, folder) for folder in os.listdir(pred)
+                    if os.path.isdir(os.path.join(pred, folder))])
 
     # check that they are matching
     for dir1, dir2 in zip(baseline_dirs, pred_dirs):
@@ -102,7 +106,7 @@ def psnr_video(baseline, pred):
     print("Calculating psnr scores...")
 
     # predicted and target videos are shape (N, C, T, H, W)
-    ssim_scores = []
+    psnr_scores = []
 
     metric = PeakSignalNoiseRatio(data_range=255.0)
 
@@ -112,14 +116,14 @@ def psnr_video(baseline, pred):
         # (N, C, H, W)
         frame_target = baseline_videos[:, :, t, :, :]
 
-        # run frame by frame ssim
+        # run frame by frame psnr
         score = metric(frame_pred, frame_target)
-        ssim_scores.append(score)
+        psnr_scores.append(score)
 
     # average over all frames
-    avg_ssim = torch.stack(ssim_scores).mean()
+    avg_psnr = torch.stack(psnr_scores).mean()
 
-    return avg_ssim, ssim_scores
+    return avg_psnr, psnr_scores
 
 # Learned Perceptual Image Patch Similarity
 # takes in two folders of images representing video: baseline and pred
@@ -135,7 +139,7 @@ def lpips_video(baseline, pred):
     print("Calculating lpips scores...")
 
     # predicted and target videos are shape (N, C, T, H, W)
-    ssim_scores = []
+    lpips_scores = []
 
     metric = LearnedPerceptualImagePatchSimilarity(net_type='squeeze')
 
@@ -145,14 +149,44 @@ def lpips_video(baseline, pred):
         # (N, C, H, W)
         frame_target = baseline_videos[:, :, t, :, :]
 
-        # run frame by frame ssim
+        # run frame by frame lpips
         score = metric(frame_pred, frame_target)
-        ssim_scores.append(score)
+        lpips_scores.append(score)
 
     # average over all frames
-    avg_ssim = torch.stack(ssim_scores).mean()
+    avg_lpips = torch.stack(lpips_scores).mean()
 
-    return avg_ssim, ssim_scores
+    return avg_lpips, lpips_scores
+
+def dists_video(baseline, pred):
+
+    baseline_videos, pred_videos = load_and_check_videos(baseline, pred)
+
+    # uncomment to print min aand max
+    # print("Min: ", torch.min(baseline_videos))
+    # print("Max: ", torch.max(baseline_videos))
+
+    print("Calculating lpips scores...")
+
+    # predicted and target videos are shape (N, C, T, H, W)
+    dists_scores = []
+
+    metric = DeepImageStructureAndTextureSimilarity()
+
+    for t in range(baseline_videos.shape[2]):
+        # (N, C, H, W)
+        frame_pred = pred_videos[:, :, t, :, :]
+        # (N, C, H, W)
+        frame_target = baseline_videos[:, :, t, :, :]
+
+        # run frame by frame dists
+        score = metric(frame_pred, frame_target)
+        dists_scores.append(score)
+
+    # average over all frames
+    avg_dists = torch.stack(dists_scores).mean()
+
+    return avg_dists, dists_scores
 
 def tlpips_video(pred):
 

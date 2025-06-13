@@ -39,9 +39,10 @@ data
 ```
 ### Evaluation Metrics
 Evaluates the outputs of VSR models using "SSIM", "PSNR", "DISTS", "LPIPS", and "tLPIPS"
+(We have put aside a saved table of a run through of all the metrics so you don't have to yourself at `saved_metrics/model_metrics.csv`)
 
 #### Requirements
-- torch
+- torch (https://pytorch.org/get-started/locally/)
 - pandas
 - pillow
 - torchvision

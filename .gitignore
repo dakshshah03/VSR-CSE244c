@@ -3,3 +3,5 @@
 ./output/*
 /data/*
 !/data/.gitkeep
+*png
+*mp4

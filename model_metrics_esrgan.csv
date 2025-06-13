@@ -1,0 +1,2 @@
+Model,SSIM,PSNR,DISTS,LPIPS,tLPIPS
+esrgan,tensor(0.7383),tensor(25.6387),"tensor(0.0714, grad_fn=<MeanBackward0>)",tensor(0.0545),tensor(0.1318)

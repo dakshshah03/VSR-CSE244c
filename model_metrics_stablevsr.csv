@@ -1,0 +1,5 @@
+Model,SSIM,PSNR,DISTS,LPIPS,tLPIPS
+stablevsr,tensor(0.7952),tensor(27.3590),"tensor(0.0644, grad_fn=<MeanBackward0>)",tensor(0.0439),tensor(0.1316)
+esrgan,tensor(0.7383),tensor(25.6387),"tensor(0.0714, grad_fn=<MeanBackward0>)",tensor(0.0545),tensor(0.1318)
+baseline,tensor(0.7330),tensor(25.9946),"tensor(0.2447, grad_fn=<MeanBackward0>)",tensor(0.1657),tensor(0.0973)
+realesr,tensor(0.6896),tensor(23.6045),"tensor(0.1390, grad_fn=<MeanBackward0>)",tensor(0.1032),tensor(0.1454)

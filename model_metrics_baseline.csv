@@ -1,0 +1,2 @@
+Model,SSIM,PSNR,DISTS,LPIPS,tLPIPS
+baseline,tensor(0.7330),tensor(25.9946),"tensor(0.2447, grad_fn=<MeanBackward0>)",tensor(0.1657),tensor(0.0973)

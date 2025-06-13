@@ -9,13 +9,14 @@ def main():
         sys.exit(1)
 
     data_path = os.path.join('data')
-    ground_truth_path = os.path.join(data_path, 'benchmark_data', 'ground_truth')
+    output_path = os.path.join('output')
+    ground_truth_path = os.path.join(data_path, "REDS", 'benchmark_data', 'ground_truth')
 
     results = []
 
     # skip sys.argv[0] (script name)
     for arg in sys.argv[1:]:
-        pred_path = os.path.join(data_path, arg)
+        pred_path = os.path.join(output_path, arg)
         model_name = os.path.basename(pred_path.rstrip("/\\"))
 
         print(f"calculating {model_name}'s metrics...")

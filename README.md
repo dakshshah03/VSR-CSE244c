@@ -163,31 +163,6 @@ We have set up a script to run inference on REDS4.
     ```
 which will upscale the images in the `./data/REDS/benchmark_data/low_resolution` folder and output the upscaled images (and videos) in `./output/stablevsr/`
 
-<<<<<<< HEAD
-=======
-## Evaluating Metrics
-Evaluates the outputs of VSR models using "SSIM", "PSNR", "DISTS", "LPIPS", and "tLPIPS"
-
-### Requirements
-- torch (https://pytorch.org/get-started/locally/)
-- pandas
-- pillow
-- torchvision
-- torchmetrics
-
-1. Run
-    ```
-    pip install pandas torch torchvision torchmetrics
-    ```
-2. Download the groundtruth dataset and VSR predicions
-    - put into `./data` directory
-    - the predictions should be organized such that the directory name is the name of the model as this will be read and put into the output table, inside should be diretories of images/frames of the videos
-    - the benchmark_data should be in a directory labeled `./data/benchmark_data/ground_truth`
-3. run `python 'utils/evaluate_metrics.py' '<model1_predictions>' '<model2_predictions>' ...`
-    - i.e. python 'utils/evaluate_metrics.py' 'baseline' 'esrgan' 'realesr' 'stablevsr'
-4. read the output that is printed out to get metrics, it is also saved in `model_metrics.csv`
-
->>>>>>> fb872aec68027d0a8936c2b71918ce9012d082a4
 <!-- ## Baseline
 Bicubic Interpolation will be used to upscale the images.
 

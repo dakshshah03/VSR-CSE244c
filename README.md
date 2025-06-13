@@ -124,7 +124,7 @@ which will upscale the images in the `./data/REDS/benchmark_data/low_resolution`
 Evaluates the outputs of VSR models using "SSIM", "PSNR", "DISTS", "LPIPS", and "tLPIPS"
 
 ### Requirements
-- torch
+- torch (https://pytorch.org/get-started/locally/)
 - pandas
 - pillow
 - torchvision

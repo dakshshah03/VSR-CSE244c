@@ -1,6 +1,7 @@
 # VSR-CSE244c
 
 A comparison between SOTA Video Super Resolution (VSR) models.
+Writeup can be found [here](https://github.com/dakshshah03/VSR-CSE244c/blob/main/CSE_244c_Final_Project_Report-4.pdf)
 We will be comparing the following models:
 - Bicubic Interpolation (baseline)
 - ESRGAN (GAN)
